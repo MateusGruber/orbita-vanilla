@@ -1,0 +1,33 @@
+
+# enable Docker for your repository
+options:
+  docker: true
+  
+pipelines:
+  branches:
+    master:
+    - step:
+        image: tstrohmeier/awscli:3.7.2
+        script:
+          # aws login
+          - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+          # docker
+          - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+          - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID .
+          - docker push ${AWS_REGISTRY_URL}:$BUILD_ID
+          - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:prd
+          - docker push ${AWS_REGISTRY_URL}:prd
+          # create new application version
+          - aws elasticbeanstalk create-application-version 
+            --application-name $APP_NAME
+            --version-label $BUILD_ID
+            --source-bundle S3Bucket=$BUCKET_NAME,S3Key=$BUCKET_KEY_NAME-prod.zip
+          # update enviroment with version
+          - aws elasticbeanstalk update-environment 
+            --application-name $APP_NAME
+            --environment-name $ENVIRONMENT_NAME
+            --version-label $BUILD_ID
+definitions:
+  services:
+    docker:
+      memory: 3072  # reduce memory for docker-in-docker from 1GB to 512MB

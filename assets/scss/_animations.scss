@@ -1,0 +1,199 @@
+@import 'variables';
+
+@keyframes sustainability {
+    from {
+        width: 0vw;
+        height: 0vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 90vw;
+        height: 90vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(70deg);
+    }
+}
+
+@keyframes business {
+    from {
+        width: 0vw;
+        height: 0vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 75vw;
+        height: 75vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-70deg);
+    }
+}
+
+@keyframes innovation {
+    from {
+        width: 0vw;
+        height: 0vw;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 60vw;
+        height: 60vw;
+        transform: translate(50%, 50%) rotate(90deg);
+    }
+}
+
+@keyframes experience {
+    from {
+        width: 0vw;
+        height: 0vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 45vw;
+        height: 45vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-130deg);
+    }
+}
+
+@keyframes media {
+    from {
+        width: 0vw;
+        height: 0vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 30vw;
+        height: 30vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-60deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+//mobile
+@keyframes sustainability-mobile {
+    from {
+        width: 0vh;
+        height: 0vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 98vh;
+        height: 98vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(20deg);
+    }
+}
+
+//mobile
+@keyframes business-mobile {
+    from {
+        width: 0vh;
+        height: 0vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 80vh;
+        height: 80vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-155deg);
+    }
+}
+
+@keyframes innovation-mobile {
+    from {
+        width: 0vh;
+        height: 0vh;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 64vh;
+        height: 64vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-20deg);
+    }
+}
+
+@keyframes experience-mobile {
+    from {
+        width: 0vw;
+        height: 0vw;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 48vh;
+        height: 48vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(140deg);
+    }
+}
+
+@keyframes media-mobile {
+    from {
+        width: 0vh;
+        height: 0vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(0);
+    }
+
+    to {
+        width: 30vh;
+        height: 30vh;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(-20deg);
+    }
+}

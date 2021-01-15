@@ -1,0 +1,18 @@
+$background: #1E2143;
+$sustainability: #91B95C;
+$business: #65A1E4;
+$innovation: #B145AC;
+$experience: #E7B053;
+$media: #D23128;
+
+$circle-transition: cubic-bezier(0.040, 0.215, 0.200, 1.335);
+
+@mixin ball-shape($color) {
+    content: '';
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background-color: $color;
+    transition: ease-in-out 300ms;
+}

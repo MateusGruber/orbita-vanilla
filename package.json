@@ -1,0 +1,25 @@
+{
+  "name": "tem-mais-front",
+  "version": "1.0.0",
+  "description": "Package for Tem Mais Frontend",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.4.2",
+    "node-sass": "latest",
+    "onchange": "^5.2.0",
+    "postcss-cli": "latest"
+  },
+  "scripts": {
+    "build:sass": "node-sass --output-style=compressed --source-map=true assets/scss/main.scss assets/css/main.css",
+    "prefix": "npm run build:sass && postcss assets/css/main.css --use=autoprefixer --output=assets/css/main.css compressed",
+    "start": "onchange \"assets/scss/**/*.scss\" -- npm run prefix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/tem-mais-front/tem-mais-front.git"
+  },
+  "author": "Madeinweb",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/tem-mais-front/tem-mais-front#readme"
+}

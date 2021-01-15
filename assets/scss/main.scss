@@ -1,0 +1,380 @@
+@import 'variables';
+@import 'animations';
+
+:root {
+    font-size: 16px;
+}
+
+* {
+    font-family: "Margem Rounded";
+}
+
+html {
+
+    body {
+        background: $background url(../imgs/background.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+        overflow: hidden;
+        
+        .wrapper {
+            position: relative;
+            overflow: hidden;
+
+            .back-arrow {
+                position: absolute;
+                background-color: transparent;
+                border: none;
+                padding: 48px 38px;
+                cursor: pointer;
+                z-index: 2;
+                outline: none;
+                display: none;
+                opacity: 0;
+                animation: fadeIn 300ms ease-in-out 300ms 1 normal forwards;
+            }
+
+            #orbit {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                transition: ease-in-out 500ms;
+
+                .circle {
+                    z-index: 1;
+                    position: absolute;
+                    display: block;
+                    margin: 0 auto;
+                    border: 2px solid red;
+                    text-align: center;
+                    border-radius: 50%;
+                    bottom: 50%;
+                    right: 50%;
+                    transform: translate(50%, 50%);
+
+                    button {
+                        position: relative;
+                        background: transparent;
+                        border: none;
+                        font-size: 1rem;
+                        display: flex;
+                        align-items: center;
+                        margin: 0 auto;
+                        margin-top: -16px;
+                        outline: none;
+                        cursor: pointer;
+
+                        @media screen and (max-width: 767.98px) {
+                            font-size: 0.75rem;
+                        }
+
+                        span {
+                            position: absolute;
+                            bottom: 50%;
+                            right: 50%;
+                            opacity: 0;
+                            animation: fadeIn 300ms ease-in-out 1.3s 1 normal forwards;
+                        }
+
+                        &.selected {
+                            z-index: 4;
+                            &::after {
+                                width: 100vw;
+                                height: 100vw;
+                            }
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            border-radius: 50%;
+                            bottom: 50%;
+                            right: 50%;
+                            transform: translate(50%, 50%);
+                            z-index: 100;
+                            transition: ease-in-out 500ms;
+                            width: 0vw;
+                            height: 0vw;
+                        }
+                    }
+
+                    &.sustainability {
+                        border-color: $sustainability;
+                        animation: sustainability 800ms $circle-transition 500ms 1 normal forwards;
+                        
+                        button {
+                            color: $sustainability;
+
+                            span {
+                                transform: translate(70px, 80px) rotate(-70deg);
+                            }
+
+                            &::before {
+                                @include ball-shape($sustainability);
+                            }
+                            &::after {
+                                background-color: $sustainability;
+                            }
+                        }
+
+                        @media screen and (max-width: 767.98px) {
+                            animation: sustainability-mobile 800ms $circle-transition 500ms 1 normal forwards;
+
+                            button {
+                                span {
+                                    transform: translate(40px, 40px) rotate(-20deg);
+                                }
+                            }
+                        }
+                    }
+
+                    &.business {
+                        border-color: $business;
+                        animation: business 700ms $circle-transition 500ms 1 normal forwards;
+
+                        button {
+                            color: $business;
+
+                            span {
+                                transform: translate(53px, 60px) rotate(70deg);
+                            }
+
+                            &::before {
+                                @include ball-shape($business);
+                            }
+                            &::after {
+                                background-color: $business;
+                            }
+                        }
+
+                        @media screen and (max-width: 767.98px) {
+                            animation: business-mobile 800ms $circle-transition 500ms 1 normal forwards;
+
+                            button {
+                                span {
+                                    transform: translate(10px, -20px) rotate(155deg);
+                                }
+                            }
+                        }
+
+                    }
+
+                    &.innovation {
+                        border-color: $innovation;
+                        animation: innovation 600ms $circle-transition 500ms 1 normal forwards;
+
+                        button {
+                            color: $innovation;
+
+                            span {
+                                transform: translate(35px, -50px) rotate(-90deg);
+                            }
+
+                            &::before {
+                                @include ball-shape($innovation);
+                            }
+                            &::after {
+                                background-color: $innovation;
+                            }
+                        }
+
+                        @media screen and (max-width: 767.98px) {
+                            animation: innovation-mobile 800ms $circle-transition 500ms 1 normal forwards;
+                            
+                            button {
+                                span {
+                                    transform: translate(18px, 35px) rotate(20deg);
+                                }
+                            }
+                        }
+                    }
+
+                    &.experience {
+                        border-color: $experience;
+                        animation: experience 500ms $circle-transition 500ms 1 normal forwards;
+
+                        button {
+                            color: $experience;
+
+                            span {
+                                transform: translate(0px, 65px) rotate(130deg);
+                            }
+
+                            &::before {
+                                @include ball-shape($experience);
+                            }
+                            &::after {
+                                background-color: $experience;
+                            }
+                        }
+
+                        @media screen and (max-width: 767.98px) {
+                            animation: experience-mobile 800ms $circle-transition 500ms 1 normal forwards;
+
+                            button {
+                                span {
+                                    transform: translate(55px, -20px) rotate(220deg);
+                                }
+                            }
+                        }
+                    }
+
+                    &.media {
+                        border-color: $media;
+                        animation: media 400ms $circle-transition 500ms 1 normal forwards;
+
+                        button {
+                            color: $media;
+                            
+                            span {
+                                transform: translate(43px, 45px) rotate(60deg);
+                            }
+
+                            &::before {
+                                @include ball-shape($media);
+                            }
+                            &::after {
+                                background-color: $media;
+                            }
+                        }
+
+                        @media screen and (max-width: 767.98px) {
+                            animation: media-mobile 800ms $circle-transition 500ms 1 normal forwards;
+
+                            button {
+                                span {
+                                    transform: translate(5px, 35px) rotate(20deg);
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    &.fadeOut {
+                        transition: ease-in-out 200ms;
+                        animation: fadeOut 200ms ease-in-out 0ms 1 normal forwards;
+                    }
+                }
+
+                .logo {
+                    position: relative;
+                    width: 100%;
+                    height: 100vh;
+
+                    svg {
+                        width: 15vw;
+                        position: absolute;
+                        bottom: 50%;
+                        right: 50%;
+                        transform: translate(50%, 50%);
+                        z-index: 10;
+
+                        @media screen and (max-width: 767.98px) {
+                            width: 40vw;
+                        }
+                    }
+
+                    &.fadeOut {
+
+                        svg {
+                            transition: ease-in-out 200ms;
+                            animation: fadeOut 200ms ease-in-out 0ms 1 normal forwards;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .sections-wrapper {
+        position: fixed;
+        display: flex;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: space-between;
+        display: none;
+        overflow: hidden;
+
+        .sections-container {
+            width: 100%;
+            padding: 0 30px;
+
+            section {
+                width: 100%;
+                max-width: 528px;
+                margin: 0 auto;
+                display: none;
+                opacity: 0;
+                animation: fadeIn 300ms ease-in-out 500ms 1 normal forwards;
+
+                h2 {
+                    font-family: "Margem Rounded";
+                    font-size: 2rem;
+                    color: white;
+                    margin-bottom: 2.875rem;
+                    line-height: 2.0625rem;
+                }
+
+                p {
+                    font-family: "Margem Rounded";
+                    font-size: 1.0625rem;
+                    line-height: 30px;
+                    margin-bottom: 4.75rem;
+                    color: white;
+                }
+
+                a {
+                    font-family: "Margem Rounded";
+                    text-decoration: none;
+                    color: black;
+                    background-color: white;
+                    width: 100%;
+                    max-width: 300px;
+                    margin: 0 auto;
+                    text-align: center;
+                    padding: 15px 0;
+                    font-size: 22px;
+                    display: block;
+                    border-radius: 5px;
+                }
+
+                &#sustainability {
+                    a {
+                        color: $sustainability;
+                    }
+                }
+                &#business {
+                    a {
+                        color: $business;
+                    }
+                }
+                &#innovation {
+                    a {
+                        color: $innovation;
+                    }
+                }
+                &#experience {
+                    a {
+                        color: $experience;
+                    }
+                }
+                &#media {
+                    a {
+                        color: $media;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@font-face {
+    font-family: "Margem Rounded";
+    src: url("../fonts/MargemRounded-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}

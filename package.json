@@ -1,7 +1,7 @@
 {
-  "name": "tem-mais-front",
+  "name": "orbita-vanilla",
   "version": "1.0.0",
-  "description": "Package for Tem Mais Frontend",
+  "description": "Orbita Vanilla",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
